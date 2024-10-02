@@ -7,8 +7,26 @@
     <title> InstantWeather </title>
 </head>
 <body>
+    <div id="tete_page">
+        <h1 id="titre"> Instant Weather </h1>
+        <p classe="texte_presentation">Votre météo en un clic</p>
+        <p classe="texte_presentation">Choisissez votre commune et consultez les prévisions du jour</p>
+    </div>
+    <div id="pcp">
+        <label for="cp">Ton code postal : </label>
+        <input type="text" id="cp" required minlength="5" maxlength="5"> 
+    </div>
+    <div id="pv">
+        <label for="CV">Choisi ta ville : </label>
+        <select name="ville" id="CV">
+            <option value=""> --Choix de la ville--</option>
+        </select>
+    </div>
+    <div id="valeur">
+
+    </div>
     <div>
-        <h1> Instant Weather </h1>
+        <button id="recherche">Rechercher</button>
     </div>
 </body>
 </html>
