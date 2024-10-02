@@ -1,1 +1,1 @@
-# InstaantWeather
+# InstantWeather
