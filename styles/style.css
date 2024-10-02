@@ -1,0 +1,61 @@
+/**********************************************************************************************************************/
+/* Titre */
+#titre {
+    text-align: center;
+    color: #80B7ED;
+    border: solid;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#texte_presentation{ 
+    text-align: center;
+    min-width: 150px;
+}
+
+#tete_page { /* div de titre et texte_presentation */
+    background-color: #B5F4FF;
+    border-width: 10px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    margin-left: min(20%, 50px);
+    margin-right: min(20%, 50px);
+}
+
+/**********************************************************************************************************************/
+/* Page */
+
+#recherche { /* Bouton rechercher */
+    margin-top: 5px;
+}
+
+#pcp {
+    margin-top: 15px;
+    text-align: center;
+    background-color: #B5F4FF;
+    border-width: 10px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    margin-left: min(20%, 50px);
+    margin-right: min(20%, 50px);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#cp {
+    
+}
+
+#pv {
+    display: non;
+}
+
+#CV { /*champ du formulaire */
+    margin-top: 5px;
+}
+
+/**********************************************************************************************************************/
+/* Infos météo */
+
