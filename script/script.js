@@ -67,12 +67,17 @@ async function obtenirMeteo(codeINSEE) {
 // Fonction pour afficher les informations météo sur la page
 function afficherMeteo(meteo) {
     const divValeur = document.getElementById('valeur');
-    divValeur.innerHTML = `
-        <p>Température minimale : ${meteo[0].tmin} °C</p>
-        <p>Température maximale : ${meteo[0].tmax} °C</p>
-        <p>Probabilité de pluie : ${meteo[0].probarain} %</p>
-        <p>Nombre d'heures d'ensoleillement : ${meteo[0].sun_hours} h</p>
+    const j = document.getElementById("nbj");
+    for (i = 1 ; i<= parseInt(j.value)+1 ; i++ ){
+        divValeur.innerHTML += ` 
+        <p>Jour de prévision n° : ${i}</p>
+        <p>Température minimale : ${meteo[i].tmin} °C</p>
+        <p>Température maximale : ${meteo[i].tmax} °C</p>
+        <p>Probabilité de pluie : ${meteo[i].probarain} %</p>
+        <p>Nombre d'heures d'ensoleillement : ${meteo[i].sun_hours} h</p>
     `;
+    }
+    
 }
 
 // Désactiver la liste des villes par défaut
