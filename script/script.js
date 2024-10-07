@@ -64,53 +64,51 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
-    // Fonction pour afficher les informations météo sur la page
-    function afficherMeteo(meteo) {
-        const ville = document.getElementById('CV').value;
-        const divValeur = document.getElementById('valeur');
-        const j = document.getElementById("nbj");
-        for (i = 1; i <= parseInt(j.value) + 1; i++) {
-            divValeur.innerHTML += ` 
-            <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="#" class="img-fluid rounded-start" alt="Images">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h2 class="card-title"> ${ville} </h2>
-                        <p class="card-text">
-                            <p>Jour de prévision n° : ${i}</p>
-                            <p>Température minimale : ${meteo[i].tmin} °C</p>
-                            <p>Température maximale : ${meteo[i].tmax} °C</p>
-                            <p>Probabilité de pluie : ${meteo[i].probarain} %</p>
-                            <p>Nombre d'heures d'ensoleillement : ${meteo[i].sun_hours} h</p>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            </div>
-            `;
-            if (document.getElementById("lat").checked == true) {
-                divValeur.innerHTML += `<p>Latitude de la commune : ${meteo[i].latitude}</p>`;
-            }
-            if (document.getElementById("lon").checked == true) {
-                divValeur.innerHTML += `<p>Longitude de la commune : ${meteo[i].longitude}</p>`;
-            }
-            if (document.getElementById("cum").checked == true) {
-                divValeur.innerHTML += `<p>Cumul de pluie sur la journée : ${meteo[i].rr10} mm</p>`;
-            }
-            if (document.getElementById("ven").checked == true) {
-                divValeur.innerHTML += `<p>Vent moyen à 10 mètre : ${meteo[i].wind10m} km/h</p>`;
-            }
-            if (document.getElementById("dir").checked == true) {
-                divValeur.innerHTML += `<p>Direction du vent en degrés (0 à 360 °): ${meteo[i].dirwind10m} °</p>`;
-            }
+// Fonction pour obtenir les données météorologiques via l'API MétéoConcept
+async function obtenirMeteo(codeINSEE) {
+    const apiKey = '930d5117f78ec1fa8f9368f75d745d99b76195c4b473e092ba6a1bb713ec3f14';
+    fetch(`https://api.meteo-concept.com/api/forecast/daily?token=${apiKey}&insee=${codeINSEE}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('valeur').innerHTML = "";
+            afficherMeteo(data.forecast);
+        })
+        .catch(error => {
+            console.error('Erreur lors de la récupération des données météo:', error);
+        });
+}
+
+// Fonction pour afficher les informations météo sur la page
+function afficherMeteo(meteo) {
+    const divValeur = document.getElementById('valeur');
+    const j = document.getElementById("nbj");
+    for (i = 1; i <= parseInt(j.value) + 1; i++) {
+        divValeur.innerHTML += ` 
+        <p>Jour de prévision n° : ${i}</p>
+        <p>Température minimale : ${meteo[i].tmin} °C</p>
+        <p>Température maximale : ${meteo[i].tmax} °C</p>
+        <p>Probabilité de pluie : ${meteo[i].probarain} %</p>
+        <p>Nombre d'heures d'ensoleillement : ${meteo[i].sun_hours} h</p>
+        `;
+        if (document.getElementById("lat").checked == true) {
+            divValeur.innerHTML += `<p>Latitude de la commune : ${meteo[i].latitude}</p>`;
         }
-
+        if (document.getElementById("lon").checked == true) {
+            divValeur.innerHTML += `<p>Longitude de la commune : ${meteo[i].longitude}</p>`;
+        }
+        if (document.getElementById("cum").checked == true) {
+            divValeur.innerHTML += `<p>Cumul de pluie sur la journée : ${meteo[i].rr10} mm</p>`;
+        }
+        if (document.getElementById("ven").checked == true) {
+            divValeur.innerHTML += `<p>Vent moyen à 10 mètre : ${meteo[i].wind10m} km/h</p>`;
+        }
+        if (document.getElementById("dir").checked == true) {
+            divValeur.innerHTML += `<p>Direction du vent en degrés (0 à 360 °): ${meteo[i].dirwind10m} °</p>`;
+        }
     }
+}
 
-    // Désactiver la liste des villes par défaut
-    document.getElementById('CV').disabled = true;
+// Désactiver la liste des villes par défaut
+document.getElementById('CV').disabled = true;
 
 });
