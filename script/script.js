@@ -1,5 +1,6 @@
 //https://api.meteo-concept.com/api/ephemeride/0?token=930d5117f78ec1fa8f9368f75d745d99b76195c4b473e092ba6a1bb713ec3f14
 
+document.addEventListener("DOMContentLoaded", () => {
 // Ajout d'un écouteur d'événement sur l'input du code postal pour surveiller les modifications
 document.getElementById('cp').addEventListener('input', function() {
     const codePostal = this.value;
@@ -67,13 +68,14 @@ async function obtenirMeteo(codeINSEE) {
 function afficherMeteo(meteo) {
     const divValeur = document.getElementById('valeur');
     divValeur.innerHTML = `
-        <p>Température minimale : ${meteo.tmin} °C</p>
-        <p>Température maximale : ${meteo.tmax} °C</p>
-        <p>Probabilité de pluie : ${meteo.probarain} %</p>
-        <p>Nombre d'heures d'ensoleillement : ${meteo.sun_hours} h</p>
+        <p>Température minimale : ${meteo[0].tmin} °C</p>
+        <p>Température maximale : ${meteo[0].tmax} °C</p>
+        <p>Probabilité de pluie : ${meteo[0].probarain} %</p>
+        <p>Nombre d'heures d'ensoleillement : ${meteo[0].sun_hours} h</p>
     `;
 }
 
 // Désactiver la liste des villes par défaut
 document.getElementById('CV').disabled = true;
 
+});
