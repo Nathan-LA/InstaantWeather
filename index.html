@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="description" content="Météo en temps réel en fonction de votre code postal">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b48f2e93a4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/style.css">
+    <script defer src="./script/script.js" type="text/javascript"></script>
     <title> InstantWeather </title>
 </head>
 <body>
@@ -15,14 +17,14 @@
     </div>
     <div id="pcp">
         <label for="cp">Ton code postal : </label>
-        <input type="text" id="cp" required minlength="5" maxlength="5">
+        <input type="number" id="cp" required min="0" max="34935">
         <div id="pv">
             <label for="CV">Choisi ta ville : </label>
             <select name="ville" id="CV">
                 <option value=""> --Choix de la ville--</option>
             </select>
             <div>
-                <button id="recherche">Rechercher</button>
+                <button id="recherche" class="fa-regular fa-circle-check"></button>
             </div>
         </div>
     </div>
