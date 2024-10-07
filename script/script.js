@@ -50,13 +50,14 @@ document.getElementById('recherche').addEventListener('click', function() {
         alert('Veuillez sélectionner une ville.');
     }
 });
-//https://api.meteo-concept.com/api/ephemeride/0?token=
+
 // Fonction pour obtenir les données météorologiques via l'API MétéoConcept
 async function obtenirMeteo(codeINSEE) {
     const apiKey = '930d5117f78ec1fa8f9368f75d745d99b76195c4b473e092ba6a1bb713ec3f14'; 
     fetch(`https://api.meteo-concept.com/api/forecast/daily?token=${apiKey}&insee=${codeINSEE}`)
         .then(response => response.json())
         .then(data => {
+            document.getElementById('valeur').innerHTML = "";
             afficherMeteo(data.forecast);
         })
         .catch(error => {
