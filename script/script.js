@@ -5,16 +5,14 @@ document.getElementById('cp').addEventListener('input', function() {
     const codePostal = this.value;
     if (codePostal.length === 5 && !isNaN(codePostal)) {
         obtenirVilles(codePostal); // Remplir la liste des villes lorsque le code postal est valide
-        document.getElementById("pv").style.display = 'block';
     } else {
         viderVilles(); // Vider la liste des villes si le code postal est invalide
-        document.getElementById("pv").style.display = 'none';
     }
 });
 
 // Fonction pour obtenir la liste des communes à partir du code postal
-function obtenirVilles(cp) {
-    fetch(`https://geo.api.gouv.fr/communes?codePostal=${cp}&fields=nom&format=json&geometry=centre`)
+async function obtenirVilles(cp) {
+    await fetch(`https://geo.api.gouv.fr/communes?codePostal=${cp}`)
         .then(response => response.json())
         .then(data => {
             const selectVille = document.getElementById('CV');
@@ -24,10 +22,10 @@ function obtenirVilles(cp) {
                 option.value = commune.code; // On stocke le code INSEE pour l'appel API météo
                 option.textContent = commune.nom;
                 selectVille.appendChild(option);
-                selectVille.innerHTML = `<option value="${commune.code}">${commune.nom}</option>`;
             });
             // Activer la liste des villes si elle est désactivée
             selectVille.disabled = false;
+            document.getElementById("pv").style.display = 'block';
         })
         .catch(error => {
             console.error('Erreur lors de la récupération des communes:', error);
@@ -39,6 +37,7 @@ function viderVilles() {
     const selectVille = document.getElementById('CV');
     selectVille.innerHTML = '<option value=""> --Choix de la ville--</option>';
     selectVille.disabled = true; // Désactiver la liste des villes
+    document.getElementById("pv").style.display = 'none';
 }
 
 // Ajout d'un écouteur d'événement sur le bouton Rechercher
@@ -52,7 +51,7 @@ document.getElementById('recherche').addEventListener('click', function() {
 });
 //https://api.meteo-concept.com/api/ephemeride/0?token=
 // Fonction pour obtenir les données météorologiques via l'API MétéoConcept
-function obtenirMeteo(codeINSEE) {
+async function obtenirMeteo(codeINSEE) {
     const apiKey = '930d5117f78ec1fa8f9368f75d745d99b76195c4b473e092ba6a1bb713ec3f14'; 
     fetch(`https://api.meteo-concept.com/api/forecast/daily?token=${apiKey}&insee=${codeINSEE}`)
         .then(response => response.json())
