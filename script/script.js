@@ -5,8 +5,10 @@ document.getElementById('cp').addEventListener('input', function() {
     const codePostal = this.value;
     if (codePostal.length === 5 && !isNaN(codePostal)) {
         obtenirVilles(codePostal); // Remplir la liste des villes lorsque le code postal est valide
+        document.getElementById("pv").style.display = 'block';
     } else {
         viderVilles(); // Vider la liste des villes si le code postal est invalide
+        document.getElementById("pv").style.display = 'none';
     }
 });
 
@@ -22,6 +24,7 @@ function obtenirVilles(cp) {
                 option.value = commune.code; // On stocke le code INSEE pour l'appel API météo
                 option.textContent = commune.nom;
                 selectVille.appendChild(option);
+                selectVille.innerHTML = `<option value="${commune.code}">${commune.nom}</option>`;
             });
             // Activer la liste des villes si elle est désactivée
             selectVille.disabled = false;
@@ -47,10 +50,10 @@ document.getElementById('recherche').addEventListener('click', function() {
         alert('Veuillez sélectionner une ville.');
     }
 });
-
+//https://api.meteo-concept.com/api/ephemeride/0?token=
 // Fonction pour obtenir les données météorologiques via l'API MétéoConcept
 function obtenirMeteo(codeINSEE) {
-    const apiKey = 'https://api.meteo-concept.com/api/ephemeride/0?token=930d5117f78ec1fa8f9368f75d745d99b76195c4b473e092ba6a1bb713ec3f14'; // Remplacer par votre clé API
+    const apiKey = '930d5117f78ec1fa8f9368f75d745d99b76195c4b473e092ba6a1bb713ec3f14'; 
     fetch(`https://api.meteo-concept.com/api/forecast/daily?token=${apiKey}&insee=${codeINSEE}`)
         .then(response => response.json())
         .then(data => {
