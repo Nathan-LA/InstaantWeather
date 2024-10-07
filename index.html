@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/b48f2e93a4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/style.css">
-    <script defer src="./script/script.js" type="text/javascript"></script>
+    <script defer src="./script/script.js" ></script>
     <title> InstantWeather </title>
 </head>
 <body>
@@ -23,12 +23,14 @@
             <select name="ville" id="CV">
                 <option value=""> --Choix de la ville--</option>
             </select>
+            <br>
             <label for="nbj">Ton nombre de jour de prevision (1 à 7): </label>
-            <input type="range" id="nbj" required min="0" max="6">
+            <input type="range" id="nbj" min="0" max="6">
             <div>
                 <button id="recherche" class="fa-regular fa-circle-check"></button>
             </div>
         </div>
+        
     </div>
     <div id="valeur">
 
