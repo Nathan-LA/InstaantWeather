@@ -77,19 +77,19 @@ function afficherMeteo(meteo) {
         <p>Nombre d'heures d'ensoleillement : ${meteo[i].sun_hours} h</p>
     `;
     if(document.getElementById("lat").checked == true){
-        divValeur.innerHTML += '<p>Latitude de la commune : ${meteo[i].latitude}</p>';
+        divValeur.innerHTML += `<p>Latitude de la commune : ${meteo[i].latitude}</p>`;
     }
     if(document.getElementById("lon").checked == true){
-        divValeur.innerHTML += '<p>Longitude de la commune : ${meteo[i].longitude}</p>';
+        divValeur.innerHTML += `<p>Longitude de la commune : ${meteo[i].longitude}</p>`;
     }
     if(document.getElementById("cum").checked == true){
-        divValeur.innerHTML += '<p>Cumul de pluie sur la journée : ${meteo[i].rr10} mm</p>';
+        divValeur.innerHTML += `<p>Cumul de pluie sur la journée : ${meteo[i].rr10} mm</p>`;
     }
     if(document.getElementById("ven").checked == true){
-        divValeur.innerHTML += '<p>Vent moyen à 10 mètre : ${meteo[i].wind10m} km/h</p>';
+        divValeur.innerHTML += `<p>Vent moyen à 10 mètre : ${meteo[i].wind10m} km/h</p>`;
     }
     if(document.getElementById("dir").checked == true){
-        divValeur.innerHTML += '<p>Direction du vent en degrés (0 à 360 °): ${meteo[i].dirwind10m} °</p>';
+        divValeur.innerHTML += `<p>Direction du vent en degrés (0 à 360 °): ${meteo[i].dirwind10m} °</p>`;
     }
     }
     
