@@ -16,60 +16,64 @@
 </head>
 
 <body>
-    <!--Le civ ci dessous, sert comme prmiere partie du site, pour le presenter quand nous sommes sur la page-->
-    <div id="tete_page">
-        <h1 id="titre"> Instant Weather </h1>
-        <p class="texte_presentation">Votre météo en un clic</p>
-        <p class="texte_presentation">Choisissez votre commune et consultez les prévisions du jour</p>
-    </div>
-    <!--cette parti sert à selectionner les informations météo voulu avec le Code Postal (CP) et la ville (CV)-->
-    <div id="pcp">
-        <label for="cp">Ton code postal : </label>
-        <input type="number" id="cp" required min="0" max="34935">
-        <div id="pv">
-            <label for="CV">Choisi ta ville : </label>
-            <select name="ville" id="CV">
-                <option value=""> --Choix de la ville--</option>
-            </select>
-            <br>
-            <!--Pour cette partie, c'est la V2, elle permet de selectionner le nombre de jours a visionner (NBJ) et les informations supplémentaires (IS)-->
-            <label for="nbj">Ton nombre de jour de prevision (1 à 7): </label>
-            <input type="range" id="nbj" min="0" max="6">
-            <div id="IS">
-                <p>Information Suplémentaire : </p>
-                <div>
-                    <label for="lat">Latitude : </label>
-                    <input type="checkbox" id="lat">
-                </div>
-                <div>
-                    <label for="lon">Longitude : </label>
-                    <input type="checkbox" id="lon">
-                </div>
-                <div>
-                    <label for="cum">Cumul de pluie</label>
-                    <input type="checkbox" id="cum">
-                </div>
-                <div>
-                    <label for="ven">Vent moyen</label>
-                    <input type="checkbox" id="ven">
-                </div>
-                <div>
-                    <label for="dir">Direction du vent</label>
-                    <input type="checkbox" id="dir">
-                </div>
-            </div>
-            <div>
-                <button id="recherche" class="fa-regular fa-circle-check"></button>
-            </div>
+    <main>
+        <!--Le civ ci dessous, sert comme prmiere partie du site, pour le presenter quand nous sommes sur la page-->
+        <div id="tete_page">
+            <h1 id="titre"> Instant Weather </h1>
+            <p class="texte_presentation">Votre météo en un clic</p>
+            <p class="texte_presentation">Choisissez votre commune et consultez les prévisions du jour</p>
         </div>
+        <!--cette parti sert à selectionner les informations météo voulu avec le Code Postal (CP) et la ville (CV)-->
+        <div id="pcp">
+            <!--Inscription du Code Postal-->
+            <label for="cp">Ton code postal : </label>
+            <input type="number" id="cp" required min="0" max="34935">
+            <div id="pv">
+                <label for="CV">Choisi ta ville : </label>
+                <!--Menu déroulant pour choisir la ville-->
+                <select name="ville" id="CV">
+                    <option value=""> --Choix de la ville--</option>
+                </select>
+                <br>
+                <!--Pour cette partie, c'est la V2, elle permet de selectionner le nombre de jours a visionner (NBJ) et les informations supplémentaires (IS)-->
+                <label for="nbj">Ton nombre de jour de prevision (1 à 7): </label>
+                <input type="range" id="nbj" min="0" max="6">
+                <div id="IS">
+                    <p>Information Suplémentaire : </p>
+                    <div>
+                        <label for="lat">Latitude : </label>
+                        <input type="checkbox" id="lat">
+                    </div>
+                    <div>
+                        <label for="lon">Longitude : </label>
+                        <input type="checkbox" id="lon">
+                    </div>
+                    <div>
+                        <label for="cum">Cumul de pluie</label>
+                        <input type="checkbox" id="cum">
+                    </div>
+                    <div>
+                        <label for="ven">Vent moyen</label>
+                        <input type="checkbox" id="ven">
+                    </div>
+                    <div>
+                        <label for="dir">Direction du vent</label>
+                        <input type="checkbox" id="dir">
+                    </div>
+                </div>
+                <div>
+                    <button id="recherche" class="fa-regular fa-circle-check"></button>
+                </div>
+            </div>
 
-    </div>
-    <!--Cette partie serviras a ajouté les informations météo a afficher sous forme de carte-->
-    <div id="valeur">
+        </div>
+        <!--Cette partie serviras a ajouté les informations météo a afficher sous forme de carte-->
+        <div id="valeur">
 
-    </div>
+        </div>
+    </main>
     <!--Footer pour les copyright et tous droit reserver-->
-    <footer>
+    <footer id="foot">
         <p>©Team Bizarre Adventure ®Team Bizarre Adventure</p>
     </footer>
 </body>
