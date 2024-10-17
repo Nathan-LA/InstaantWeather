@@ -27,7 +27,7 @@
 /* Page */
 
 #recherche { /* Bouton rechercher */
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 #pcp {
@@ -52,6 +52,17 @@
     margin-top: 5px;
 }
 
+#IS {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /**********************************************************************************************************************/
 /* Infos météo */
 
+.card {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}

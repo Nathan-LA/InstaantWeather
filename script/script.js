@@ -79,31 +79,45 @@ async function obtenirMeteo(codeINSEE) {
 }
 
 // Fonction pour afficher les informations météo sur la page
-function afficherMeteo(meteo) {
+async function afficherMeteo(meteo) {
+    const nomVille = document.getElementById("CV")[0];
     const divValeur = document.getElementById('valeur');
     const j = document.getElementById("nbj");
     for (i = 1; i <= parseInt(j.value) + 1; i++) {
         divValeur.innerHTML += ` 
-        <p>Jour de prévision n° : ${i}</p>
-        <p>Température minimale : ${meteo[i].tmin} °C</p>
-        <p>Température maximale : ${meteo[i].tmax} °C</p>
-        <p>Probabilité de pluie : ${meteo[i].probarain} %</p>
-        <p>Nombre d'heures d'ensoleillement : ${meteo[i].sun_hours} h</p>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <img src="#" class="img-fluid rounded-start" alt="Images">
+                <div class="card-body">
+                    <h2 class="card-title"> ${nomVille} </h2>
+                    <p class="card-text">
+                        <p>Jour de prévision n° : ${i}</p>
+                        <p>Température minimale : ${meteo[i].tmin} °C</p>
+                        <p>Température maximale : ${meteo[i].tmax} °C</p>
+                        <p>Probabilité de pluie : ${meteo[i].probarain} %</p>
+                        <p>Nombre d'heures d'ensoleillement : ${meteo[i].sun_hours} h</p>
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush" id="liste-additionnelle${i}">
+                </ul>
+            </div>
+        </div>
         `;
+        const liste = document.getElementById("liste-additionnelle"+i);
         if (document.getElementById("lat").checked == true) {
-            divValeur.innerHTML += `<p>Latitude de la commune : ${meteo[i].latitude}</p>`;
+            liste.innerHTML += `<li class="list-group-item">Latitude de la commune : ${meteo[i].latitude}</li>`;
         }
         if (document.getElementById("lon").checked == true) {
-            divValeur.innerHTML += `<p>Longitude de la commune : ${meteo[i].longitude}</p>`;
+            liste.innerHTML += `<li class="list-group-item">Longitude de la commune : ${meteo[i].longitude}</li>`;
         }
         if (document.getElementById("cum").checked == true) {
-            divValeur.innerHTML += `<p>Cumul de pluie sur la journée : ${meteo[i].rr10} mm</p>`;
+            liste.innerHTML += `<li class="list-group-item">Cumul de pluie sur la journée : ${meteo[i].rr10} mm</li>`;
         }
         if (document.getElementById("ven").checked == true) {
-            divValeur.innerHTML += `<p>Vent moyen à 10 mètre : ${meteo[i].wind10m} km/h</p>`;
+            liste.innerHTML += `<li class="list-group-item">Vent moyen à 10 mètre : ${meteo[i].wind10m} km/h</li>`;
         }
         if (document.getElementById("dir").checked == true) {
-            divValeur.innerHTML += `<p>Direction du vent en degrés (0 à 360 °): ${meteo[i].dirwind10m} °</p>`;
+            liste.innerHTML += `<li class="list-group-item">Direction du vent en degrés (0 à 360 °): ${meteo[i].dirwind10m} °</li>`;
         }
     }
 }
