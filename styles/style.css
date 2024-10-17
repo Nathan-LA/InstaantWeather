@@ -79,7 +79,19 @@
 
 /**********************************************************************************************************************/
 /* Footer */
-
-footer div{
+#foot {
+    margin-top: 15px;
     text-align: center;
+    background-color: #B5F4FF;
+    border-width: 10px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Main */
+main{
+    height: 90vh;
 }
