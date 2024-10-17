@@ -84,10 +84,37 @@ async function afficherMeteo(meteo) {
     const divValeur = document.getElementById('valeur');
     const j = document.getElementById("nbj");
     for (i = 1; i <= parseInt(j.value) + 1; i++) {
+        const weather = meteo[i].weather;
+        let link = "../picto/";
+        if(weather==0){
+            link += "day.svg";
+        } else if(weather==1 || weather==2){
+            link += "cloudy-day-1.svg";
+        } else if(weather==3){
+            link += "cloudy-day-2.svg";
+        } else if(weather==4){
+            link += "cloudy-day-3.svg";
+        } else if(weather>=5 && weather<=7){
+            link += "cloudy.svg";
+        } else if((weather>=10 && weather<=16 && (weather-10)%3==0) || (weather>=40 && weather<=48 && (weather-40)%3==0) || (weather>=210 && weather<=212 && (weather-210)%3==0)){
+            link += "rainy-4.svg";
+        } else if((weather>=10 && weather<=16 && (weather-10)%3==1) || (weather>=40 && weather<=48 && (weather-40)%3==1) || (weather>=210 && weather<=212 && (weather-210)%3==1)){
+            link += "rainy-5.svg";
+        } else if((weather>=10 && weather<=16 && (weather-10)%3==2) || (weather>=40 && weather<=48 && (weather-40)%3==2) || (weather>=210 && weather<=212 && (weather-210)%3==2)){
+            link += "rainy-6.svg";
+        } else if((weather>=20 && weather<=32 && (weather-20)%3==0) || (weather>=60 && weather<=78 && (weather-60)%3==0) || (weather>=220 && weather<=232 && (weather-220)%3==0)){
+            link += "snowy-4.svg";
+        } else if((weather>=20 && weather<=32 && (weather-20)%3==1) || (weather>=60 && weather<=78 && (weather-60)%3==1) || (weather>=220 && weather<=232 && (weather-220)%3==1)){
+            link += "snowy-5.svg";
+        } else if((weather>=20 && weather<=32 && (weather-20)%3==2) || (weather>=60 && weather<=78 && (weather-60)%3==2) || (weather>=220 && weather<=232 && (weather-220)%3==2)){
+            link += "snowy-6.svg";
+        } else if(weather>=100 && weather<=142){
+            link += "thunder.svg";
+        }
         divValeur.innerHTML += ` 
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
-                <img src="#" class="img-fluid rounded-start" alt="Images">
+                <img src="${link}" class="img-fluid rounded-start" alt="Images">
                 <div class="card-body">
                     <h2 class="card-title"> ${nomVille} </h2>
                     <p class="card-text">
