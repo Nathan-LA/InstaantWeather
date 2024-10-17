@@ -40,12 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
         selectVille.disabled = true; // Désactiver la liste des villes
         document.getElementById("pv").style.display = 'none';
     }
-
+    
     // Ajout d'un écouteur d'événement sur le bouton Rechercher
     document.getElementById('recherche').addEventListener('click', function () {
         const ville = document.getElementById('CV').value;
+        const footer = document.getElementById("foot"); 
         if (ville) {
             obtenirMeteo(ville); // Appel à l'API météo si une ville est sélectionnée
+            footer.style.display = "none"; // Pour cacher le footer a la recherche
         } else {
             alert('Veuillez sélectionner une ville.');
         }
