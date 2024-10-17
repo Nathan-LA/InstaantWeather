@@ -80,7 +80,7 @@ async function obtenirMeteo(codeINSEE) {
 
 // Fonction pour afficher les informations météo sur la page
 async function afficherMeteo(meteo) {
-    const nomVille = document.getElementById("CV")[0];
+    const nomVille = document.getElementById("CV").options[document.getElementById("CV").selectedIndex].textContent;
     const divValeur = document.getElementById('valeur');
     const j = document.getElementById("nbj");
     for (i = 1; i <= parseInt(j.value) + 1; i++) {
