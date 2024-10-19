@@ -116,7 +116,7 @@ async function afficherMeteo(meteo) {
         divValeur.innerHTML += ` 
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
-                <img src="${link}" class="img-fluid rounded-start" alt="Images">
+                <img src="${link}" class="img-fluid rounded-start" alt="Images" style="max-width: 200px">
                 <div class="card-body">
                     <h2 class="card-title"> ${nomVille} </h2>
                     <p class="card-text">
