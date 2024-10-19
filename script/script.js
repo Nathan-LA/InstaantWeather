@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Activer la liste des villes si elle est désactivée
                 selectVille.disabled = false;
                 document.getElementById("pv").style.display = 'block';
+                document.getElementById("pv").setAttribute('aria-hidden', 'false');
             })
             .catch(error => {
                 console.error('Erreur lors de la récupération des communes:', error);
@@ -39,6 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
         selectVille.innerHTML = '<option value=""> --Choix de la ville--</option>';
         selectVille.disabled = true; // Désactiver la liste des villes
         document.getElementById("pv").style.display = 'none';
+        document.getElementById("pv").setAttribute('aria-hidden', 'true');
+
     }
     
     // Ajout d'un écouteur d'événement sur le bouton Rechercher
