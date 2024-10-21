@@ -1,0 +1,110 @@
+/**********************************************************************************************************************/
+/* Titre */
+#titre {
+    text-align: center;
+    color: #80B7ED;
+    border: solid;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.texte_presentation{ 
+    text-align: center;
+    min-width: 150px;
+}
+
+#tete_page { /* div de titre et texte_presentation */
+    background-color: #B5F4FF;
+    border-width: 10px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    margin-left: min(20%, 50px);
+    margin-right: min(20%, 50px);
+}
+
+/**********************************************************************************************************************/
+/* Page */
+
+#recherche { /* Bouton rechercher */
+    margin-top: 10px;
+}
+
+#pcp {
+    margin-top: 15px;
+    text-align: center;
+    background-color: #B5F4FF;
+    border-width: 10px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    margin-left: min(20%, 50px);
+    margin-right: min(20%, 50px);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#pv {
+    display: none;
+}
+
+#CV { /*champ du formulaire */
+    margin-top: 5px;
+}
+
+#IS {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/**********************************************************************************************************************/
+/* Infos météo */
+
+#valeur {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card{
+    margin-top: 40px;
+    background-color: #B5F4FF !important;
+    border-width: 10px !important;
+    border-color: black !important;
+    border-style: solid !important;
+    border-radius: 10px !important;
+}
+
+.card-body ,.list-group{
+    border: solid !important;
+}
+
+.list-group-item {
+    background-color: #B5F4FF !important;
+}
+
+.img-fluid {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/**********************************************************************************************************************/
+/* Footer */
+#foot {
+    margin-top: 15px;
+    text-align: center;
+    background-color: #B5F4FF;
+    border-width: 10px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Main */
+main{
+    height: 90vh;
+}
